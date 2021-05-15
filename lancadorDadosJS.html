@@ -3,6 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <script>
+
+        imagens = [
+            "imagens/default.png",
+            "imagens/l1.png",
+            "imagens/l2.png",
+            "imagens/l3.png",
+            "imagens/l4.png",
+            "imagens/l5.png",
+            "imagens/l6.png",
+        ];
+
+        num1User = 0;
+        num2User = 0;
+        ttUser = 0;
+        num1Computer = 0;
+        num2Computer = 0;
+        ttComputer = 0;
+
         function lancarDados() {
             num1User = getRandom(1, 6);
             num2User = getRandom(1, 6);
@@ -12,15 +30,48 @@
             num2Computer = getRandom(1, 6);
             ttComputer = num1Computer + num2Computer;
 
-            document.write("<h2>Seus Lançamentos</h2>Dado 1: " + num1User + "<br/>Dado 2: " + num2User + "<br/>Total: " + ttUser);
-            document.write("<h2>Computador</h2>Dado 1: " + num1Computer + "<br/>Dado 2: " + num2Computer + "<br/>Total: " + ttComputer);
+            divLancamento("Seus Lançamentos", num1User, num2User, ttUser);
+            divLancamento("Computador", num1Computer, num2Computer, ttComputer);
+            mostrarResultado();
         }
 
         function getRandom(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
+
+        function divLancamento(textJogador, idImg1, idImg2, total) {
+            document.write(
+            "   <div>                                                                           " +
+            "       <h2>" + textJogador + "</h2>                                                " +
+            "       <div>                                                                       " +   
+            "            <img src= \"" + imagens[idImg1] + "\"/>                                " +
+            "            <p>Dado 1</p>                                                          " +
+            "       </div>                                                                      " +
+            "       <div>                                                                       " +
+            "            <img src= \"" + imagens[idImg2] + "\"/>                                " +
+            "            <p>Dado 2</p>                                                          " +
+            "       </div>                                                                      " +
+            "       <h4>Total: " + total + " pontos </h4>                                       " +
+            "   </div>                                                                          " );
+        }
+
+        function mostrarResultado() {
+            if (ttUser > 0)
+                result = "";
+                if (ttUser > ttComputer)
+                    result = "Você Venceu! Parece que está com sorte. Jogue de novo para ganhar mais prêmios!";
+
+                else if (ttUser == ttComputer)
+                    result = "Empate! Dessa vez passou perto. Tente de novo para vencer!";
+
+                else
+                    result = "Você perdeu! Não desanime, aposto que os dados serão melhores na próxima!";
+
+                document.write("<h2>" + result + "</h2>");
+        }
+
     </script>
-    <title>Lançador de Dados JS - Lógica Inicial</title>
+    <title>Lançador de Dados JS - Versão Final</title>
 </head>
 <body>
 
@@ -28,5 +79,6 @@
     <p>Teste sua sorte com os dados! Só não vale trapacear!</p>
     
     <input type="button" onclick="lancarDados();" value="Lançar os dados!"/>
+
 </body>
 </html>
