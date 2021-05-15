@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <script>
-        function mostrarValor() {
-            num = parseFloat(document.getElementById('num').value);
-            document.write("Número: " + num);
+        function lancarDados() {
+            num1 = getRandom(1, 6);
+            num2 = getRandom(1, 6);
+
+            document.write("Número 1: " + num1 + "<br/>Número 2: " + num2);
+        }
+
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
         }
     </script>
-    <title>Lançador de Dados JS - Teste Inicial</title>
+    <title>Lançador de Dados JS - Lógica Inicial</title>
 </head>
 <body>
-    Número<input type="text" name="num" id="num">
-    <input type="button" onclick="mostrarValor();" value="OK"
-            value="Lançar os dados!"/>
+
+    <h1>Lançador de Dados</h1>
+    <p>Teste sua sorte com os dados! Só não vale trapacear!</p>
+    
+    <input type="button" onclick="lancarDados();" value="Lançar os dados!"/>
 </body>
 </html>
