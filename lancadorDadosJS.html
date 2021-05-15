@@ -4,10 +4,16 @@
     <meta charset="UTF-8"/>
     <script>
         function lancarDados() {
-            num1 = getRandom(1, 6);
-            num2 = getRandom(1, 6);
+            num1User = getRandom(1, 6);
+            num2User = getRandom(1, 6);
+            ttUser = num1User + num2User;
 
-            document.write("Número 1: " + num1 + "<br/>Número 2: " + num2);
+            num1Computer = getRandom(1, 6);
+            num2Computer = getRandom(1, 6);
+            ttComputer = num1Computer + num2Computer;
+
+            document.write("<h2>Seus Lançamentos</h2>Dado 1: " + num1User + "<br/>Dado 2: " + num2User + "<br/>Total: " + ttUser);
+            document.write("<h2>Computador</h2>Dado 1: " + num1Computer + "<br/>Dado 2: " + num2Computer + "<br/>Total: " + ttComputer);
         }
 
         function getRandom(min, max) {
